@@ -31,19 +31,32 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.middle_part {
-    width: 67%;
+.middle_part{
     margin: 2vh;
-    height: 70vh;
+    height: 68.7vh;
     backdrop-filter: blur(10px);
     border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255,255,255,0.3);
 }
 
 .right_most_part {
     width: 20%;
     margin: 2vh;
     height: 83vh;
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.center_container {
+    width: 67%;
+    display: flex;
+    flex-direction: column;
+}
+
+.play_bar {
+    height: 10vh;
+    margin: 2vh;
     backdrop-filter: blur(10px);
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.3);
