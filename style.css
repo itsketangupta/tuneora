@@ -14,7 +14,8 @@ body {
     width: auto;
     height: 7vh;
     margin: 2vh;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    align-items: center;
 }
 
 .main_body_container {
@@ -60,4 +61,22 @@ body {
     backdrop-filter: blur(10px);
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.upper_bar .logo {
+    margin-left: 5vh;
+}
+
+.upper_bar .docs {
+    margin-left: auto;
+}
+
+.upper_bar .docs a,
+.upper_bar .about a {
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    font-weight: 500;
+    margin: 2vh ;
+
 }
