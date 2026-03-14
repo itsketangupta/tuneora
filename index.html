@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tuneora</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
 </head>
 
@@ -26,11 +26,43 @@
         </div>
 
         <div class="center_container">
-            <div class="middle_part"></div>
-            <div class="play_bar"></div>
+            <div class="middle_part">
+                <h1>Trending Songs</h1>
+                <div class="Trending_song">
+                    <div id="songs"></div>
+                </div>
+                <h1>Popular Artists</h1>
+                <div class="popular_artist">
+                    <div id="artists"></div>
+                </div>
+            </div>
+            <div class="play_bar">
+                <div class="song_id">
+                    <div class="song_name">Song name</div>
+                    <div class="artist_name">Artist name</div>
+                </div>
+                <div class="middle_part_play_bar">
+                    <div class="upper_middle_part_play_bar">
+                        <button id="prev"><img src="assets/backword.svg" alt="" width="25px"></button>
+                        <button id="play"><img src="assets/playofplaybar.svg" alt="" width="25px"></button>
+                        <button id="next"><img src="assets/forword.svg" alt="" width="25px"></button>
+                    </div>
+                    <div class="lower_middle_part_play_bar">
+                        <div class="played_time_of_song">00:00</div>
+                        <div class="percentage_bar_of_song"></div>
+                        <div class="total_time_of_song">00:00</div>
+                    </div>
+                </div>
+                <div class="sound">
+                    <div class="condition_of_sound"><img src="assets/sound.svg" alt=""></div>
+                    <div class="percentage_bar_of_sound"></div>
+                </div>
+            </div>
         </div>
 
-        <div class="right_most_part"></div>
+        <div class="right_most_part">
+            <h1>Recently Played</h1>
+        </div>
     </div>
 </body>
 
