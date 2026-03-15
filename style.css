@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
 * {
+    font-family: "Outfit", sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -49,8 +52,7 @@ body::before {
 
 .home:hover,
 .search:hover,
-.libary:hover,
-.language:hover {
+.libary:hover{
     transform: scale(1.1);
 }
 
@@ -64,10 +66,6 @@ body::before {
 
 .libary {
     background: linear-gradient(145deg, #ff7b7b, #ff3a3a);
-}
-
-.language {
-    background: linear-gradient(145deg, #5de0c7, #2fb7a2);
 }
 
 .nav_icon button {
@@ -135,20 +133,6 @@ body::before {
     margin-left: 5vh;
 }
 
-.upper_bar .docs {
-    margin-left: auto;
-}
-
-.upper_bar .docs a,
-.upper_bar .about a {
-    text-decoration: none;
-    font-size: 20px;
-    color: white;
-    font-weight: 500;
-    margin: 2vh;
-
-}
-
 .center_container .middle_part h1 {
     color: white;
     font-size: 32px;
@@ -169,10 +153,14 @@ body::before {
     text-align: center;
     border: 2px solid rgba(255, 255, 255, 0.3);
     height: 30vh;
+    width: 20vh;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
 }
 
 .Trending_songs_card img {
-    width: 20vh;
+    width: 100%;
     border-radius: 10px;
 }
 
@@ -191,13 +179,6 @@ body::before {
 .Trending_song {
     overflow-x: auto;
     overflow-y: hidden;
-}
-
-#songs {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 20px;
-    margin: 20px;
 }
 
 .Artist_card {
@@ -221,11 +202,10 @@ body::before {
 #songs {
     display: flex;
     flex-wrap: nowrap;
-    width: 20vh;
-    height: 35vh;
-    margin-right: 3vh;
-    margin-top: 20px;
+    gap: 20px;
+    margin: 20px;
 }
+
 
 .popular_artist {
     overflow-x: auto;
@@ -258,7 +238,7 @@ body::before {
 }
 
 .play_button_of_trending_card {
-    background: #1db954;
+    background: #00bfff;
     border: none;
     padding: 8px 11px;
     border-radius: 100px;
@@ -281,15 +261,6 @@ body::before {
     padding: 0 20px;
 }
 
-.percentage_bar_of_song {
-    width: 15vw;
-    height: 5px;
-    background-color: #ffffff;
-    border-radius: 2.5px;
-    margin-top: 10px;
-    position: relative;
-}
-
 .upper_middle_part_play_bar button {
     background: transparent;
     border: none;
@@ -308,11 +279,13 @@ body::before {
 .lower_middle_part_play_bar {
     display: flex;
     justify-content: center;
+    color: white;
     gap: 20px;
 }
 
 .middle_part_play_bar {
-    display: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .sound {
@@ -332,4 +305,90 @@ body::before {
 .song_id {
     color: white;
     font-size: 14px;
+}
+
+.song_name {
+    max-width: 160px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.song_name.scroll {
+    animation: scrollText 8s linear infinite;
+}
+
+@keyframes scrollText {
+    0% {
+        transform: translateX(0)
+    }
+
+    100% {
+        transform: translateX(-100%)
+    }
+}
+
+.percentage_bar_of_song {
+    width: 300px;
+    height: 6px;
+    background: #444;
+    position: relative;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.percentage_bar_of_song::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: var(--progress, 0%);
+    background: #0099ff;
+    border-radius: 5px;
+}
+
+.percentage_bar_of_song::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: var(--progress, 0%);
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    background: #0099ff;
+    border-radius: 50%;
+}
+
+.percentage_bar_of_song:hover::before {
+    transform: translate(-50%, -50%) scale(1.2);
+}
+
+#volume {
+    width: 120px;
+}
+
+.recent_item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.recent_item img {
+    border-radius: 2px;
+}
+
+.right_most_part {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.condition_of_sound {
+    margin-right: 2vh;
 }

@@ -13,8 +13,6 @@
 <body>
     <div class="upper_bar">
         <div class="logo"> <img src="assets/logo.png" alt="" width="57px"></div>
-        <div class="docs"><a href="Docs.html">Docs</a></div>
-        <div class="about"><a href="About.html">About</a></div>
     </div>
 
     <div class="main_body_container">
@@ -22,7 +20,6 @@
             <div class="home nav_icon"><button><img src="assets/home.svg" alt=""></button></div>
             <div class="search nav_icon"><button><img src="assets/search.svg" alt=""></button></div>
             <div class="libary nav_icon"><button><img src="assets/libary.svg" alt=""></button></div>
-            <div class="language nav_icon"><button><img src="assets/language.svg" alt=""></button></div>
         </div>
 
         <div class="center_container">
@@ -38,8 +35,8 @@
             </div>
             <div class="play_bar">
                 <div class="song_id">
-                    <div class="song_name">Song name</div>
-                    <div class="artist_name">Artist name</div>
+                    <div class="song_name"></div>
+                    <div class="artist_name"></div>
                 </div>
                 <div class="middle_part_play_bar">
                     <div class="upper_middle_part_play_bar">
@@ -55,13 +52,14 @@
                 </div>
                 <div class="sound">
                     <div class="condition_of_sound"><img src="assets/sound.svg" alt=""></div>
-                    <div class="percentage_bar_of_sound"></div>
+                    <input type="range" id="volume" min="0" max="1" step="0.01" value="1">
                 </div>
             </div>
         </div>
 
         <div class="right_most_part">
             <h1>Recently Played</h1>
+            <div id="recent"></div>
         </div>
     </div>
 </body>
