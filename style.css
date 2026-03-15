@@ -41,19 +41,23 @@ body::before {
     width: 10%;
     margin: 2vh;
     height: 83vh;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(18px);
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.3);
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.home:hover,
-.search:hover,
-.libary:hover{
-    transform: scale(1.1);
+.navbar #active_button {
+    width: 0.4vw;
+    height: 7vh;
+    background: linear-gradient(145deg, #6f8cff, #5b2fff);
+    border-radius: 100px;
+    position: absolute;
+    transition: all 0.3s ease;
+    right: 17%;
+    top: 33%;
 }
 
 .home {
@@ -78,16 +82,13 @@ body::before {
 
 .nav_icon {
     margin: 5vh 2vh 2vh 2vh;
-    width: 4vw;
+    width: 5vw;
     height: 7vh;
-    border-radius: 5px;
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 24px;
-    color: white;
     cursor: pointer;
     transition: 0.3s;
 }
@@ -95,7 +96,7 @@ body::before {
 .middle_part {
     margin: 2vh;
     height: 68.7vh;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(18px);
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.3);
     overflow-y: auto;
@@ -110,7 +111,7 @@ body::before {
     width: 20%;
     margin: 2vh;
     height: 83vh;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(18px);
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
@@ -119,12 +120,13 @@ body::before {
     width: 67%;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .play_bar {
     height: 10vh;
     margin: 2vh;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(18px);
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
@@ -147,7 +149,7 @@ body::before {
 
 .Trending_songs_card {
     border-radius: 10px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(18px);
     padding: 10px;
     margin-right: 3vh;
     text-align: center;
@@ -187,7 +189,7 @@ body::before {
     width: 20vh;
     height: 20vh;
     text-align: center;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(18px);
 }
 
 .Artist_card img {
@@ -391,4 +393,46 @@ body::before {
 
 .condition_of_sound {
     margin-right: 2vh;
+}
+
+#searchbox {
+    position: absolute;
+    top: 12%;
+    left: 10%;
+    width: 50vw;
+    height: 50vh;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(18px);
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    display: none;
+}
+
+#searchbox #search_input {
+    width: 80%;
+    height: 40px;
+    border: none;
+    border-radius: 20px 0 0 20px;
+    background: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 0 15px;
+    font-size: 16px;
+    outline: none;
+    color: white;
+}
+
+#searchbox #searchbox_button {
+    width: 40px;
+    height: 42px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 0 20px 20px 0;
+    padding-right: 30px;
 }

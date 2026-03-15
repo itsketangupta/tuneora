@@ -17,9 +17,12 @@
 
     <div class="main_body_container">
         <div class="navbar">
-            <div class="home nav_icon"><button><img src="assets/home.svg" alt=""></button></div>
-            <div class="search nav_icon"><button><img src="assets/search.svg" alt=""></button></div>
-            <div class="libary nav_icon"><button><img src="assets/libary.svg" alt=""></button></div>
+            <div class="buttons_of_navbar">
+                <div class="home nav_icon"><button id="home"><img src="assets/home.svg" alt=""></button></div>
+                <div class="search nav_icon"><button id="search"><img src="assets/search.svg" alt=""></button></div>
+                <div class="libary nav_icon"><button id="libary"><img src="assets/libary.svg" alt=""></button></div>
+            </div>
+            <div id="active_button"></div>
         </div>
 
         <div class="center_container">
@@ -32,6 +35,11 @@
                 <div class="popular_artist">
                     <div id="artists"></div>
                 </div>
+            </div>
+            <div id="searchbox">
+                <input type="text" id="search_input" placeholder="Search for songs, artists, albums...">
+                <button id="searchbox_button"><img src="assets/search.svg" alt=""></button>
+                <div id="results"></div>
             </div>
             <div class="play_bar">
                 <div class="song_id">

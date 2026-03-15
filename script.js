@@ -1,7 +1,7 @@
 const container = document.getElementById("songs");
 const artistsContainer = document.getElementById("artists");
 const recentContainer = document.getElementById("recent");
-const API_KEY = "ba02ff83d6a8356b395b80892567b71d";
+// const API_KEY = "ba02ff83d6a8356b395b80892567b71d";
 
 const fixedSongs = ["Shape of You", "Believer"];
 
@@ -318,7 +318,7 @@ function addRecent(songObj) {
 
     recentContainer.prepend(card);
 
-    if (recentContainer.children.length > 10) {
+    if (recentContainer.children.length > 50) {
         recentContainer.removeChild(recentContainer.lastChild);
     }
 
@@ -371,3 +371,55 @@ async function loadArtists() {
 }
 
 loadArtists();
+
+async function searchMusic() {
+
+    const query = document.getElementById("searchbox").value;
+
+    const url = `https://itunes.apple.com/search?term=${query}&entity=song&limit=1`;
+
+    const res = await fetch(url);
+
+    const data = await res.json();
+
+    const results = document.getElementById("results");
+
+    results.innerHTML = "";
+
+    data.results.forEach(song => {
+
+        const div = document.createElement("div");
+
+        div.className = "song";
+
+        div.innerHTML = `
+<img src="${song.artworkUrl100}">
+<h3>${song.trackName}</h3>
+<p>${song.artistName}</p>
+<audio controls src="${song.previewUrl}"></audio>
+`;
+
+        results.appendChild(div);
+
+    });
+
+}
+document.getElementById("searchbox_button").addEventListener("click", () => { searchMusic(); });
+
+document.getElementById("home").onclick = function () {
+    document.getElementById("searchbox").style.display = "none";
+    document.getElementById("active_button").style.background = "linear-gradient(145deg, #6f8cff, #5b2fff)";
+    document.getElementById("active_button").style.top = "33%";
+};
+
+document.getElementById("search").onclick = function () {
+    document.getElementById("searchbox").style.display = "block";
+    document.getElementById("active_button").style.background = "linear-gradient(145deg, #7de0ff, #4a8dff)";
+    document.getElementById("active_button").style.top = "47.5%";
+};
+
+document.getElementById("libary").onclick = function () {
+    document.getElementById("searchbox").style.display = "none";
+    document.getElementById("active_button").style.background = "linear-gradient(145deg, #ff7b7b, #ff3a3a)";
+    document.getElementById("active_button").style.top = "62.4%";
+};
