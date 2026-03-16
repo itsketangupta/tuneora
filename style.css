@@ -166,10 +166,33 @@ body::before {
     border-radius: 10px;
 }
 
-.Trending_songs_card .song {
-    font-weight: bold;
+#results {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+#results .song {
     color: white;
-    margin-top: 8px;
+    margin: 8px;
+    padding: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 16px;
+    display: flex;
+    cursor: pointer;
+}
+
+.main_body_container .center_container #searchbox .input_bar {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+#results .song img{
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    margin-right: 10px;
 }
 
 .Trending_songs_card .artist {
@@ -406,11 +429,12 @@ body::before {
     border-radius: 10px;
     padding: 10px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    overflow: auto;
     display: none;
 }
 
-#searchbox #search_input {
+#searchbox input {
     width: 80%;
     height: 40px;
     border: none;
@@ -424,7 +448,7 @@ body::before {
     color: white;
 }
 
-#searchbox #searchbox_button {
+#searchbox button {
     width: 40px;
     height: 42px;
     border: none;

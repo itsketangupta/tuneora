@@ -1,7 +1,8 @@
 const container = document.getElementById("songs");
 const artistsContainer = document.getElementById("artists");
 const recentContainer = document.getElementById("recent");
-// const API_KEY = "ba02ff83d6a8356b395b80892567b71d";
+
+const API_KEY = "ba02ff83d6a8356b395b80892567b71d";
 
 const fixedSongs = ["Shape of You", "Believer"];
 
@@ -314,7 +315,14 @@ function addRecent(songObj) {
 
     card.className = "recent_item";
 
-    card.innerHTML = `<img src="${songObj.artwork}" width="40"> <span>${shortenText(songObj.name, 18)}</span>`;
+    card.innerHTML = `
+    <img src="${songObj.artwork}" width="40">
+    <span>${shortenText(songObj.name, 18)}</span>
+    `;
+
+    card.addEventListener("click", () => {
+        playSong(songObj);
+    });
 
     recentContainer.prepend(card);
 
@@ -374,36 +382,66 @@ loadArtists();
 
 async function searchMusic() {
 
-    const query = document.getElementById("searchbox").value;
+    const query = document.getElementById("search_input").value;
 
-    const url = `https://itunes.apple.com/search?term=${query}&entity=song&limit=1`;
+    const url = `https://itunes.apple.com/search?term=${encodeURIComponent(query)}&entity=song&limit=20`;
 
     const res = await fetch(url);
-
     const data = await res.json();
 
     const results = document.getElementById("results");
-
     results.innerHTML = "";
 
     data.results.forEach(song => {
 
         const div = document.createElement("div");
-
         div.className = "song";
 
         div.innerHTML = `
-<img src="${song.artworkUrl100}">
-<h3>${song.trackName}</h3>
-<p>${song.artistName}</p>
-<audio controls src="${song.previewUrl}"></audio>
-`;
+        <img src="${song.artworkUrl100}">
+        <div class="info">
+        <h3>${song.trackName}</h3>
+        <p>${song.artistName}</p>
+        </div>
+        `;
 
         results.appendChild(div);
+
+        div.addEventListener("click", () => {
+
+            const audio = new Audio(song.previewUrl);
+
+            const songObj = {
+                audio: audio,
+                artwork: song.artworkUrl100.replace("100x100", "1000x1000"),
+                name: song.trackName,
+                artist: song.artistName
+            };
+
+            playlist.push(songObj);
+
+            playSong(songObj);
+
+        });
 
     });
 
 }
+
+document.addEventListener("click", function (e) {
+
+    const searchBox = document.getElementById("searchbox");
+    const searchBtn = document.getElementById("search");
+
+    // agar click searchbox ya search button ke andar nahi hua
+    if (!searchBox.contains(e.target) && !searchBtn.contains(e.target)) {
+        searchBox.style.display = "none";
+        document.getElementById("active_button").style.background = "linear-gradient(145deg, #6f8cff, #5b2fff)";
+        document.getElementById("active_button").style.top = "33%";
+    }
+
+});
+
 document.getElementById("searchbox_button").addEventListener("click", () => { searchMusic(); });
 
 document.getElementById("home").onclick = function () {
@@ -418,8 +456,72 @@ document.getElementById("search").onclick = function () {
     document.getElementById("active_button").style.top = "47.5%";
 };
 
-document.getElementById("libary").onclick = function () {
+document.getElementById("libary").onclick = function (e) {
+
+    e.stopPropagation();
+
     document.getElementById("searchbox").style.display = "none";
-    document.getElementById("active_button").style.background = "linear-gradient(145deg, #ff7b7b, #ff3a3a)";
+
+    document.getElementById("active_button").style.background =
+        "linear-gradient(145deg, #ff7b7b, #ff3a3a)";
+
     document.getElementById("active_button").style.top = "62.4%";
 };
+
+const randomSongs = [
+"Blinding Lights",
+"Stay",
+"Believer",
+"Shape of You",
+"Starboy",
+"Bad Guy",
+"Heat Waves",
+"Senorita",
+"Levitating",
+"Peaches"
+];
+
+async function playRandomSong(){
+
+    const randomIndex = Math.floor(Math.random() * randomSongs.length);
+
+    const songName = randomSongs[randomIndex];
+
+    const api = `https://itunes.apple.com/search?term=${encodeURIComponent(songName)}&entity=song&limit=1`;
+
+    const res = await fetch(api);
+    const data = await res.json();
+
+    if(data.results.length === 0) return;
+
+    const music = data.results[0];
+
+    const audio = new Audio(music.previewUrl);
+
+    const songObj = {
+        audio: audio,
+        artwork: music.artworkUrl100.replace("100x100","1000x1000"),
+        name: music.trackName,
+        artist: music.artistName
+    };
+
+    playlist.push(songObj);
+
+    playSong(songObj);
+
+}
+
+document.getElementById("next").addEventListener("click", () => {
+
+    if (currentIndex < playlist.length - 1) {
+
+        playNext();
+
+    } 
+    else {
+
+        playRandomSong();
+
+    }
+
+});
