@@ -4,6 +4,7 @@
     font-family: "Outfit", sans-serif;
     margin: 0;
     padding: 0;
+    color: white;
 }
 
 body {
@@ -136,7 +137,7 @@ body::before {
 }
 
 .center_container .middle_part h1 {
-    color: white;
+
     font-size: 32px;
     margin: 2vh;
 }
@@ -161,7 +162,7 @@ body::before {
     flex-shrink: 0;
 }
 
-.Trending_songs_card img {
+.Trending_songs_card .card_img {
     width: 100%;
     border-radius: 10px;
 }
@@ -172,8 +173,27 @@ body::before {
     overflow: auto;
 }
 
+.Trending_songs_card:hover .fav {
+    display: block;
+    transform: scale(1.2);
+}
+
+.fav {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    background-color: #0091ff;
+    border-radius: 50%;
+    padding: 5px;
+    display: none;
+}
+
 #results .song {
-    color: white;
+
     margin: 8px;
     padding: 8px;
     border: 2px solid rgba(255, 255, 255, 0.3);
@@ -188,7 +208,7 @@ body::before {
     justify-content: center;
 }
 
-#results .song img{
+#results .song img {
     width: 50px;
     height: 50px;
     border-radius: 10px;
@@ -207,7 +227,7 @@ body::before {
 }
 
 .Artist_card {
-    color: white;
+
     border-radius: 100px;
     width: 20vh;
     height: 20vh;
@@ -251,7 +271,7 @@ body::before {
 }
 
 .right_most_part h1 {
-    color: white;
+
     font-size: 25px;
     margin: 2vh;
 }
@@ -304,7 +324,7 @@ body::before {
 .lower_middle_part_play_bar {
     display: flex;
     justify-content: center;
-    color: white;
+
     gap: 20px;
 }
 
@@ -328,7 +348,6 @@ body::before {
 }
 
 .song_id {
-    color: white;
     font-size: 14px;
 }
 
@@ -353,7 +372,7 @@ body::before {
 }
 
 .percentage_bar_of_song {
-    width: 300px;
+    width: 20vw;
     height: 6px;
     background: #444;
     position: relative;
@@ -389,7 +408,7 @@ body::before {
 }
 
 #volume {
-    width: 120px;
+    width: 10vw;
 }
 
 .recent_item {
@@ -400,7 +419,7 @@ body::before {
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.3);
     margin: 10px;
-    color: white;
+
     cursor: pointer;
 }
 
@@ -445,7 +464,7 @@ body::before {
     padding: 0 15px;
     font-size: 16px;
     outline: none;
-    color: white;
+
 }
 
 #searchbox button {
@@ -459,4 +478,70 @@ body::before {
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 0 20px 20px 0;
     padding-right: 30px;
+}
+
+#favorite_songs {
+    position: absolute;
+    top: 12%;
+    left: 10%;
+    width: 50vw;
+    height: 50vh;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(18px);
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    display: none;
+}
+
+#mobile {
+    display: none;
+}
+
+.website {
+    display: none;
+}
+
+@media screen and (max-width: 835px) {
+    body {
+        background-color: #ffffff;
+    }
+
+    body::before {
+        background: rgba(255, 255, 255);
+    }
+
+    .upper_bar,
+    .main_body_container {
+        display: none;
+    }
+
+    .website {
+        display: block;
+        width: 100%;
+        height: 100vh;
+        background: linear-gradient(145deg, #6f8cff, #5b2fff);
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .website h1{
+        position: absolute;
+        top: 40%;
+        width: 50vw;
+    }
+
+    .website footer {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: end;
+        text-align: center;
+    }
 }

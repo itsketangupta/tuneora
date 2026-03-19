@@ -6,13 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tuneora</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mobile.css">
     <script src="script.js" defer></script>
-    <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/logo.ico" type="image/x-icon">
 </head>
 
 <body>
+    <div class="website">
+        <h1>
+            This website is not built for mobile devices. Please use a desktop or laptop to access this website.
+        </h1>
+        <footer>~By Tuneora <img src="assets/logo.ico" alt="" width="20px"></footer>
+    </div>
     <div class="upper_bar">
-        <div class="logo"> <img src="assets/logo.png" alt="" width="57px"></div>
+        <div class="logo"><a href="index.html"><img src="assets/logo.ico" alt="" width="57px"></a></div>
+        <h1></h1>
     </div>
 
     <div class="main_body_container">
@@ -43,6 +51,12 @@
                 </div>
                 <div id="results"></div>
             </div>
+
+            <div id="favorite_songs">
+                <h1>Favorite Songs</h1>
+                <div id="favorites"></div>
+            </div>
+
             <div class="play_bar">
                 <div class="song_id">
                     <div class="song_name"></div>
